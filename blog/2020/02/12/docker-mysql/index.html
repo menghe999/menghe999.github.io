@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>在Centos上安装docker，部署mysql数据库 | 孟大仙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本 list docker-ce --showduplicates">
+  <meta name="description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本yum list docker-ce --showduplica">
 <meta name="keywords" content="docker,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Centos上安装docker，部署mysql数据库">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;02&#x2F;12&#x2F;docker-mysql&#x2F;index.html">
 <meta property="og:site_name" content="孟大仙">
-<meta property="og:description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本 list docker-ce --showduplicates">
+<meta property="og:description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本yum list docker-ce --showduplica">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-12T04:57:54.074Z">
+<meta property="og:updated_time" content="2020-02-12T05:00:11.017Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="孟大仙" type="application/atom+xml">
@@ -176,10 +176,9 @@
 <p>CentOS Linux release 7.7.1908 (Core)</p>
 </blockquote>
 <hr>
-<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本</p>
-<figure class="highlight plain"><figcaption><span>list docker-ce --showduplicates | sort -r ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2、输入命令安装（**前提是本机没有其他版本docker**）&#96;&#96;&#96;  sudo yum install docker-ce&#96;&#96;&#96; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">3、等待几分钟完成之后，查询是否安装成功&#96;&#96;&#96; docker -v</span></pre></td></tr></table></figure>
-
-
+<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本<code>yum list docker-ce --showduplicates | sort -r</code></p>
+<p>2、输入命令安装（<strong>前提是本机没有其他版本docker</strong>）<code>sudo yum install docker-ce</code> </p>
+<p>3、等待几分钟完成之后，查询是否安装成功<code>docker -v</code></p>
 <h3 id="常用docker-命令"><a href="#常用docker-命令" class="headerlink" title="常用docker 命令"></a>常用docker 命令</h3><p>拉取镜像  <code>docker pull xxx</code> xxx是镜像名</p>
 <p>查看本地docker镜像 <code>docker images</code></p>
 <p>查看docker运行的进程<code>docker ps</code></p>

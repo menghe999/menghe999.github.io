@@ -174,10 +174,9 @@
 <p>CentOS Linux release 7.7.1908 (Core)</p>
 </blockquote>
 <hr>
-<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本</p>
-<figure class="highlight plain"><figcaption><span>list docker-ce --showduplicates | sort -r ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2、输入命令安装（**前提是本机没有其他版本docker**）&#96;&#96;&#96;  sudo yum install docker-ce&#96;&#96;&#96; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">3、等待几分钟完成之后，查询是否安装成功&#96;&#96;&#96; docker -v</span></pre></td></tr></table></figure>
-
-
+<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本<code>yum list docker-ce --showduplicates | sort -r</code></p>
+<p>2、输入命令安装（<strong>前提是本机没有其他版本docker</strong>）<code>sudo yum install docker-ce</code> </p>
+<p>3、等待几分钟完成之后，查询是否安装成功<code>docker -v</code></p>
 <h3 id="常用docker-命令"><a href="#常用docker-命令" class="headerlink" title="常用docker 命令"></a>常用docker 命令</h3><p>拉取镜像  <code>docker pull xxx</code> xxx是镜像名</p>
 <p>查看本地docker镜像 <code>docker images</code></p>
 <p>查看docker运行的进程<code>docker ps</code></p>
