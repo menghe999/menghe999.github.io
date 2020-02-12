@@ -174,41 +174,10 @@
 <p>CentOS Linux release 7.7.1908 (Core)</p>
 </blockquote>
 <hr>
-<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本<code>yum list docker-ce --showduplicates | sort -r</code></p>
-<p>2、输入命令安装（<strong>前提是本机没有其他版本docker</strong>）<code>sudo yum install docker-ce</code> </p>
-<p>3、等待几分钟完成之后，查询是否安装成功<code>docker -v</code></p>
-<h3 id="常用docker-命令"><a href="#常用docker-命令" class="headerlink" title="常用docker 命令"></a>常用docker 命令</h3><p>拉取镜像  <code>docker pull xxx</code> xxx是镜像名</p>
-<p>查看本地docker镜像 <code>docker images</code></p>
-<p>查看docker运行的进程<code>docker ps</code></p>
-<p>停止某一进程 <code>docker stop XXX</code>(XXX 是 CONTAINER ID )</p>
-<h2 id="下面演示docker-安装-mysql"><a href="#下面演示docker-安装-mysql" class="headerlink" title="下面演示docker 安装 mysql"></a>下面演示docker 安装 mysql</h2><p>1、查询docker仓库中mysql的版本<code>docker search mysql</code>  </p>
-<p>2、导入mysql镜像<code>docker pull mysql</code>  等待完成</p>
-<p>3、启动mysql数据库<code>docker run --name mysql_demo -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code>   其中123465是管理员密码，请自行定义。</p>
-<p>4、使用命令进入docker mysql <code>docker exec -it 627f1857db41 /bin/bash</code>  627f1857db41是CONTAINER ID</p>
-<p>5、登陆mysql使用命令  <code>mysql -uroot -p</code> </p>
-<p>6、输入密码<code>123456</code></p>
-<blockquote>
-<p> 如果你能看到一下结果，就证明你已经成功在docker上部署mysql数据库了。</p>
-</blockquote>
-<p>```  [root@izbp1bfxfdyulbdgtdansvz ~]# docker exec -it 627f1857db41 /bin/bash</p>
-<p>root@627f1857db41:/# mysql -uroot -p</p>
-<p>Enter password:</p>
-<p>Welcome to the MySQL monitor.  Commands end with ; or \g.<br>Your MySQL connection id is 14<br>Server version: 8.0.19 MySQL Community Server - GPL</p>
-<p>Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.</p>
-<p>Oracle is a registered trademark of Oracle Corporation and/or its<br>affiliates. Other names may be trademarks of their respective<br>owners.</p>
-<p>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.</p>
-<p>mysql&gt; show databases;<br>+——————–+<br>| Database           |<br>+——————–+<br>| demo               |<br>| information_schema |<br>| mysql              |<br>| performance_schema |<br>| sys                |<br>+——————–+<br>5 rows in set (0.00 sec)</p>
-<p>mysql&gt; exit</p>
-<p>Bye</p>
-<p>root@627f1857db41:/# exit</p>
-<p>[root@izbp1bfxfdyulbdgtdansvz ~]#</p>
-<p>[root@izbp1bfxfdyulbdgtdansvz ~]#  </p>
-<pre><code>&gt; 使用``` exit```  退出mysql和docker
-
-
-
-
-</code></pre>
+<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3>
+        
+          <a class="article-more-a" href="/blog/2020/02/12/docker-mysql/#more">more >></a>
+        
       
 
       
