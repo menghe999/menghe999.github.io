@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 孟大仙</title>
+  <title>在Centos上安装docker，部署mysql数据库 | 孟大仙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="孟大仙">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本 list docker-ce --showduplicates">
+<meta name="keywords" content="docker,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Centos上安装docker，部署mysql数据库">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;02&#x2F;12&#x2F;docker-mysql&#x2F;index.html">
 <meta property="og:site_name" content="孟大仙">
+<meta property="og:description" content="何为docker？ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。   本机环境24小时不关机的Centos 7  CentOS Linux release 7.7.1908 (Core)   如何安装？1、首先查看仓库中所有docker版本 list docker-ce --showduplicates">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-12T04:57:54.074Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="孟大仙" type="application/atom+xml">
@@ -143,36 +147,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="new-docker-mysql" class="article article-type-new " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-new">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/12/docker-mysql/" class="archive-article-date">
-  	<time datetime="2020-02-12T04:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/12/docker-mysql/">在Centos上安装docker，部署mysql数据库</a>
+    <h1 class="article-title" itemprop="name">
+      在Centos上安装docker，部署mysql数据库
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/2020/02/12/docker-mysql/" class="archive-article-date">
+  	<time datetime="2020-02-12T04:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="何为docker？"><a href="#何为docker？" class="headerlink" title="何为docker？"></a>何为docker？</h3><blockquote>
+<p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+</blockquote>
+<hr>
+<h3 id="本机环境"><a href="#本机环境" class="headerlink" title="本机环境"></a>本机环境</h3><p><strong>24小时不关机的Centos 7</strong></p>
+<blockquote>
+<p>CentOS Linux release 7.7.1908 (Core)</p>
+</blockquote>
+<hr>
+<h3 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h3><p>1、首先查看仓库中所有docker版本</p>
+<figure class="highlight plain"><figcaption><span>list docker-ce --showduplicates | sort -r ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2、输入命令安装（**前提是本机没有其他版本docker**）&#96;&#96;&#96;  sudo yum install docker-ce&#96;&#96;&#96; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">3、等待几分钟完成之后，查询是否安装成功&#96;&#96;&#96; docker -v</span></pre></td></tr></table></figure>
+
+
+<h3 id="常用docker-命令"><a href="#常用docker-命令" class="headerlink" title="常用docker 命令"></a>常用docker 命令</h3><p>拉取镜像  <code>docker pull xxx</code> xxx是镜像名</p>
+<p>查看本地docker镜像 <code>docker images</code></p>
+<p>查看docker运行的进程<code>docker ps</code></p>
+<p>停止某一进程 <code>docker stop XXX</code>(XXX 是 CONTAINER ID )</p>
+<h2 id="下面演示docker-安装-mysql"><a href="#下面演示docker-安装-mysql" class="headerlink" title="下面演示docker 安装 mysql"></a>下面演示docker 安装 mysql</h2><p>1、查询docker仓库中mysql的版本<code>docker search mysql</code>  </p>
+<p>2、导入mysql镜像<code>docker pull mysql</code>  等待完成</p>
+<p>3、启动mysql数据库<code>docker run --name mysql_demo -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code>   其中123465是管理员密码，请自行定义。</p>
+<p>4、使用命令进入docker mysql <code>docker exec -it 627f1857db41 /bin/bash</code>  627f1857db41是CONTAINER ID</p>
+<p>5、登陆mysql使用命令  <code>mysql -uroot -p</code> </p>
+<p>6、输入密码<code>123456</code></p>
+<blockquote>
+<p> 如果你能看到一下结果，就证明你已经成功在docker上部署mysql数据库了。</p>
+</blockquote>
+<p>```  [root@izbp1bfxfdyulbdgtdansvz ~]# docker exec -it 627f1857db41 /bin/bash</p>
+<p>root@627f1857db41:/# mysql -uroot -p</p>
+<p>Enter password:</p>
+<p>Welcome to the MySQL monitor.  Commands end with ; or \g.<br>Your MySQL connection id is 14<br>Server version: 8.0.19 MySQL Community Server - GPL</p>
+<p>Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.</p>
+<p>Oracle is a registered trademark of Oracle Corporation and/or its<br>affiliates. Other names may be trademarks of their respective<br>owners.</p>
+<p>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.</p>
+<p>mysql&gt; show databases;<br>+——————–+<br>| Database           |<br>+——————–+<br>| demo               |<br>| information_schema |<br>| mysql              |<br>| performance_schema |<br>| sys                |<br>+——————–+<br>5 rows in set (0.00 sec)</p>
+<p>mysql&gt; exit</p>
+<p>Bye</p>
+<p>root@627f1857db41:/# exit</p>
+<p>[root@izbp1bfxfdyulbdgtdansvz ~]#</p>
+<p>[root@izbp1bfxfdyulbdgtdansvz ~]#  </p>
+<pre><code>&gt; 使用``` exit```  退出mysql和docker
+
+
+
+
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -188,110 +255,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2020/02/12/docker-mysql/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/11/E-R%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2020-02-11T08:04:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/02/11/E-R%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于E-R图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/11/E-R%E5%9B%BE/">关于E-R图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">考试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算机基础//" class="article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/01/19/bit-operator-1/" class="archive-article-date">
-  	<time datetime="2020-01-19T12:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/01/19/bit-operator-1/">C语言之位操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">c语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">位操作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -317,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
