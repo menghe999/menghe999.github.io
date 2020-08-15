@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>C语言之位操作 | 个人博客</title>
+  <title>第一篇博客 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在嵌入式开发过程中，位操作也是最基本的要求，大多数嵌入式设备的内存紧张，需要对位操作来节省内存空间，让我们来熟悉一下位操作">
-<meta name="keywords" content="c语言,位操作">
+  <meta name="description" content="经历一天的摸索，成功搭建hexo+coding博客框架，并更换yilia主题，设置点击小心心功能，本博客用于记录生活和工作中的采坑记录。">
+<meta name="keywords" content="hexo,yilia">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言之位操作">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;01&#x2F;19&#x2F;bit-operator-1&#x2F;index.html">
+<meta property="og:title" content="第一篇博客">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;12&#x2F;08&#x2F;null-2019-12-08-hello-this-a-test&#x2F;index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="在嵌入式开发过程中，位操作也是最基本的要求，大多数嵌入式设备的内存紧张，需要对位操作来节省内存空间，让我们来熟悉一下位操作">
+<meta property="og:description" content="经历一天的摸索，成功搭建hexo+coding博客框架，并更换yilia主题，设置点击小心心功能，本博客用于记录生活和工作中的采坑记录。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;01&#x2F;19&#x2F;bit-operator-1&#x2F;bit-operator.PNG">
-<meta property="og:updated_time" content="2020-02-12T05:14:05.610Z">
+<meta property="og:updated_time" content="2020-08-15T00:03:38.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;01&#x2F;19&#x2F;bit-operator-1&#x2F;bit-operator.PNG">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -153,36 +151,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-bit-operator-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-null-2019-12-08-hello-this-a-test" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C语言之位操作
+      第一篇博客
     </h1>
   
 
         
-        <a href="/blog/2020/01/19/bit-operator-1/" class="archive-article-date">
-  	<time datetime="2020-01-19T12:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+        <a href="/blog/2019/12/08/null-2019-12-08-hello-this-a-test/" class="archive-article-date">
+  	<time datetime="2019-12-08T02:08:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在嵌入式开发过程中，位操作也是最基本的要求，大多数嵌入式设备的内存紧张，需要对位操作来节省内存空间，让我们来熟悉一下位操作</p>
-<a id="more"></a>
-
-<blockquote>
-<p>通过移位运算获取单字节数据</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#define GET_LOW_BYTE0(x)	((x&gt;&gt;  0)&amp;0x000000ff)    &#x2F;&#x2F;第0个字节&#96;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">#define GET_LOW_BYTE1(x)	((x&gt;&gt;  8)&amp;0x000000ff)    &#x2F;&#x2F;第1个字节&#96;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">#define GET_LOW_BYTE2(x)	((x&gt;&gt; 16)&amp;0x000000ff)   &#x2F;&#x2F;第2个字节&#96;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">#define GET_LOW_BYTE3(x)	((x&gt;&gt; 24)&amp;0x000000ff)   &#x2F;&#x2F;第3个字节&#96;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">int main(void)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	unsigned int a &#x3D; 0x87654321; &#x2F;&#x2F;4字节数据&#96;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	printf(&quot;0x%x的第0个字节为；0x%x\n&quot;, a,GET_LOW_BYTE0(a) );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	printf(&quot;0x%x的第1个字节为；0x%x\n&quot;, a,GET_LOW_BYTE1(a) );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">	printf(&quot;0x%x的第2个字节为；0x%x\n&quot;, a,GET_LOW_BYTE2(a) );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">	printf(&quot;0x%x的第3个字节为；0x%x\n&quot;, a,GET_LOW_BYTE3(a) );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<p><strong>使用gcc编译链接可执行文件，运行结果如下：</strong></p>
-<p><img src="/blog/2020/01/19/bit-operator-1/bit-operator.PNG" alt="bit-operator"></p>
+        <p>经历一天的摸索，成功搭建<strong>hexo+coding</strong>博客框架，并更换<strong>yilia</strong>主题，设置点击<strong>小心心</strong>功能，本博客用于记录生活和工作中的采坑记录。</p>
 
       
 
@@ -217,11 +206,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">c语言</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">位操作</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -277,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2020/01/19/bit-operator-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2019/12/08/null-2019-12-08-hello-this-a-test/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,20 +280,15 @@
   
 <nav id="article-nav">
   
-    <a href="/blog/2020/02/12/docker-mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2020/01/19/null-2020-01-19-bit-operator-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          在Centos上安装docker，部署mysql数据库
+          C语言之位操作
         
       </div>
     </a>
   
-  
-    <a href="/blog/2019/12/08/hello-this-a-test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇博客</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
