@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Ruoyi-vue开源项目 部署过程记录 | 个人博客</title>
+  <title>什么是抽象类、什么是接口？ | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于SpringBoot、Spring Security、Jwt、Vue的前后端分离的后台管理系统">
-<meta name="keywords" content="项目部署,Java,Springboot">
+  <meta name="description" content="Java中的抽象类和接口">
+<meta name="keywords" content="Java基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ruoyi-vue开源项目 部署过程记录">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;07&#x2F;28&#x2F;ruoyi&#x2F;index.html">
+<meta property="og:title" content="什么是抽象类、什么是接口？">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2020&#x2F;08&#x2F;15&#x2F;Abstract-Interface&#x2F;index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="基于SpringBoot、Spring Security、Jwt、Vue的前后端分离的后台管理系统">
+<meta property="og:description" content="Java中的抽象类和接口">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-28T12:29:16.765Z">
+<meta property="og:updated_time" content="2020-08-14T23:59:53.511Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
@@ -151,88 +151,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ruoyi" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Abstract-Interface" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Ruoyi-vue开源项目 部署过程记录
+      什么是抽象类、什么是接口？
     </h1>
   
 
         
-        <a href="/blog/2020/07/28/ruoyi/" class="archive-article-date">
-  	<time datetime="2020-07-28T07:49:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
+        <a href="/blog/2020/08/15/Abstract-Interface/" class="archive-article-date">
+  	<time datetime="2020-08-14T23:57:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于SpringBoot、Spring Security、Jwt、Vue的前后端分离的后台管理系统</p>
+        <p>Java中的抽象类和接口</p>
 <a id="more"></a>
 
-<h4 id="1、部署环境基础"><a href="#1、部署环境基础" class="headerlink" title="1、部署环境基础"></a>1、部署环境基础</h4><ul>
-<li><p>JDK &gt;= 1.8 (推荐1.8版本)</p>
-</li>
-<li><p>Mysql &gt;= 5.5.0 (推荐5.7版本)</p>
-</li>
-<li><p>Redis &gt;= 3.0</p>
-</li>
-<li><p>Maven &gt;= 3.0</p>
-</li>
-<li><p>Node &gt;= 10 </p>
-</li>
-<li><p>Nginx</p>
-</li>
-</ul>
-<p>本实验部署在Centos 7的虚拟机上，已经安装好上述环境。</p>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p><strong>什么是抽象类？</strong></p>
 <blockquote>
-<p>确保以上环境部署成功，再继续下面的步骤。</p>
+<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</p>
 </blockquote>
-<h4 id="2、克隆-Ruoyi-vue-项目到本地"><a href="#2、克隆-Ruoyi-vue-项目到本地" class="headerlink" title="2、克隆 Ruoyi-vue 项目到本地"></a>2、克隆 Ruoyi-vue 项目到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;y_project&#x2F;RuoYi-Vue.git</span></pre></td></tr></table></figure>
-<p>项目结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">└── RuoYi-Vue</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    ├── bin</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    ├── doc</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    ├── LICENSE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    ├── pom.xml</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    ├── README.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-admin</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-common</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-framework</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-generator</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-quartz</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-system</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    ├── ruoyi-ui</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    ├── ry.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    └── sql</span></pre></td></tr></table></figure>
-<h4 id="3、修改必要配置"><a href="#3、修改必要配置" class="headerlink" title="3、修改必要配置"></a>3、修改必要配置</h4><p>下面所有的操作都是在ruoyi-admin文件夹下</p>
-<p>创建数据库ry-vue并导入数据脚本ry_20191008.sql，quartz.sql</p>
-<p>修改数据库连接<br>编辑resources目录下的application-druid.yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">url: 服务器地址</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">username: 账号</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">password: 密码</span></pre></td></tr></table></figure>
-<p>开发环境配置<br>编辑resources目录下的application.yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">port: 端口</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">context-path: 部署路径</span></pre></td></tr></table></figure>
-
-<p>填写Redis地址和密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">redis:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  # 地址</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  host: localhost</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  # 端口，默认为6379</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  port: 6379</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  # 密码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  password:</span></pre></td></tr></table></figure>
-<p>日志配置，修改logback.xml文件，配置本地路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;!-- 日志存放路径 --&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;property name&#x3D;&quot;log.path&quot; value&#x3D;&quot;&#x2F;home&#x2F;ruoyi&#x2F;logs&quot; &#x2F;&gt;</span></pre></td></tr></table></figure>
-<p>再给logback.xml添加字符集 <strong>charset</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;pattern&gt; ......&lt;&#x2F;pattern&gt; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;charset&gt;UTF-8&lt;&#x2F;charset&gt;</span></pre></td></tr></table></figure>
-<h4 id="4、上传至服务器打包（SFTP）"><a href="#4、上传至服务器打包（SFTP）" class="headerlink" title="4、上传至服务器打包（SFTP）"></a>4、上传至服务器打包（SFTP）</h4><ul>
-<li>前端打包(前端文件压缩一下，再上传)</li>
-</ul>
-<p>上传完成先安装依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"># 强烈建议不要用直接使用 cnpm 安装，会有各种诡异的 bug，可以通过重新指定 registry 来解决 npm 安装速度慢的问题。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">npm install --unsage-perm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span></pre></td></tr></table></figure>
-<p> 打包<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm rum build:prod</span></pre></td></tr></table></figure><br> 会生成dist目录，包含目录如下<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">├── favicon.ico</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── index.html</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── robots.txt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── static</span></pre></td></tr></table></figure></p>
+<p><strong>抽象类的特点</strong></p>
 <ul>
-<li><p>后端打包（jar）</p>
-<p>在后端项目主目录使用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mvn package</span></pre></td></tr></table></figure>
-<p>得到target目录，包含jar包。（注意备份jar包）</p>
+<li><p>抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。</p>
 </li>
-<li><p>开始部署</p>
+<li><p>抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。</p>
+</li>
+<li><p>抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。</p>
+</li>
+<li><p>构造方法，类方法（用 static 修饰的方法）不能声明为抽象方法。</p>
+</li>
+<li><p>抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。</p>
 </li>
 </ul>
-<p>先部署前端，首先配置ngnix，修改/usr/local/nginx/conf中的nginx.conf文件。<br>修改成如下部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">user  root;#修改成root用户</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">|</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">|</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">|</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">       location &#x2F; &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">           root   &#x2F;home&#x2F;menghe&#x2F;file&#x2F;ruoyi-ui&#x2F;dist; #前端文件位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">           index  index.html index.htm;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">       &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       #修改转发路径,关联前后台</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">	location &#x2F;prod-api&#x2F; &#123;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">		proxy_set_header Host $http_host;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">		proxy_set_header X-Real-IP $remote_addr;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">		proxy_set_header REMOTE-HOST $remote_addr;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">		proxy_pass http:&#x2F;&#x2F;192.168.0.201:8080&#x2F;;#后端地址</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr></table></figure>
-<p>注意修改完成更新nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reload</span></pre></td></tr></table></figure>
-<p> 然后后端部署</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup java -jar ruoyi-admin.jar &amp;</span></pre></td></tr></table></figure>
-
-<h4 id="5、启动系统"><a href="#5、启动系统" class="headerlink" title="5、启动系统"></a>5、启动系统</h4><p> 使用浏览器访问服务器IP地址，正常情况你就可以登陆了。</p>
-<h4 id="6、相关链接"><a href="#6、相关链接" class="headerlink" title="6、相关链接"></a>6、相关链接</h4><p><strong><a href="http://doc.ruoyi.vip/" target="_blank" rel="noopener">官方文档</a></strong></p>
-<p><strong><a href="https://www.bilibili.com/video/BV1uK411p7Bp" target="_blank" rel="noopener">保姆教学</a></strong></p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>什么是接口，对比类进行解释 ？</p>
+<blockquote>
+<p>接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念。类描述对象的属性和方法。接口则包含类要实现的方法。</p>
+</blockquote>
+<p><strong>接口与类相似点：</strong></p>
+<ul>
+<li>一个接口可以有多个方法。</li>
+<li>接口文件保存在 .java 结尾的文件中，文件名使用接口名。</li>
+<li>接口的字节码文件保存在 .class 结尾的文件中。</li>
+<li>接口相应的字节码文件必须在与包名称相匹配的目录结构中。</li>
+</ul>
+<p><strong>接口与类的区别：</strong></p>
+<ul>
+<li>接口不能用于实例化对象。</li>
+<li>接口没有构造方法。</li>
+<li>接口中所有的方法必须是抽象方法。</li>
+<li>接口不能包含成员变量，除了 static 和 final 变量。</li>
+<li>接口不是被类继承了，而是要被类实现。</li>
+<li>接口支持多继承。</li>
+</ul>
+<p><strong>接口特性</strong></p>
+<ul>
+<li>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为  public abstract（只能是 public abstract，其他修饰符都会报错）。</li>
+<li>接口中可以含有变量，但是接口中的变量会被隐式的指定为 public static final 变量（并且只能是 public，用 private 修饰会报编译错误）。</li>
+<li>接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。</li>
+</ul>
+<p><strong>抽象类和接口的区别</strong></p>
+<ul>
+<li>抽象类中的方法可以有方法体，就是能实现方法的具体功能，但是接口中的方法不行。</li>
+<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的。</li>
+<li>接口中不能含有静态代码块以及静态方法(用 static 修饰的方法)，而抽象类是可以有静态代码块和静态方法。</li>
+<li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</li>
+</ul>
+<p><strong>接口的继承</strong></p>
+<ul>
+<li>单继承：<strong>一个接口能继承另一个接口</strong>，和类之间的继承方式比较相似。接口的继承使用extends关键字，子接口继承父接口的方法。</li>
+<li>多继承：在Java中，类的多继承是不合法，<strong>但接口允许多继承。</strong></li>
+</ul>
+<p> <a href="https://www.runoob.com/java/java-interfaces.html" target="_blank" rel="noopener">参考菜鸟教程</a></p>
 
       
 
@@ -267,15 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">项目部署</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Springboot</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
@@ -331,7 +320,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2020/07/28/ruoyi/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2020/08/15/Abstract-Interface/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -345,18 +334,9 @@
   
 <nav id="article-nav">
   
-    <a href="/blog/2020/08/15/oop/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          什么是面向对象编程？
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2020/02/12/raspberry-diy/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">啥？你想diy一个智能音箱，来吧</div>
+    <a href="/blog/2020/08/15/oop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是面向对象编程？</div>
       <i class="icon-circle-right"></i>
     </a>
   
